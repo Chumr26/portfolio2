@@ -1,0 +1,19 @@
+import { createBrowserRouter } from "react-router";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Certificates from "./pages/Certificates";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Home,
+  },
+  {
+    path: "/about",
+    Component: About,
+  },
+  {
+    path: "/certificates",
+    Component: Certificates,
+  },
+]);
