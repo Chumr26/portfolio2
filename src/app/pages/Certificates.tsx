@@ -71,7 +71,7 @@ function CertificateCard({
               <p className="font-['JetBrains_Mono'] font-medium leading-[1.5] text-[14px] text-[#c7c7c7] uppercase">
                 Credential ID
               </p>
-              <p className="font-['JetBrains_Mono'] font-mono font-normal leading-[1.5] text-[14px] text-white">
+              <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[14px] text-white">
                 {credentialId}
               </p>
             </div>
