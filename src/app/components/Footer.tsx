@@ -2,6 +2,8 @@ import { useState } from "react";
 import svgPaths from "../../imports/svg-nyhfy7xnj9";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqyrngv";
+
 
 function SocialIcon({ children, href }: { children: React.ReactNode; href?: string }) {
     return (
@@ -59,7 +61,21 @@ function SocialIcon({ children, href }: { children: React.ReactNode; href?: stri
 //     );
 // }
 
-function FormInput({ label, type = "text", id }: { label: string; type?: string; id: string }) {
+function FormInput({
+    label,
+    type = "text",
+    id,
+    name,
+    value,
+    onChange,
+}: {
+    label: string;
+    type?: string;
+    id: string;
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}) {
     return (
         <div className="flex flex-col gap-[8px] w-full">
             <label htmlFor={id} className="font-medium leading-[1.6] text-[#c7c7c7] text-[16px]">
@@ -68,13 +84,28 @@ function FormInput({ label, type = "text", id }: { label: string; type?: string;
             <input
                 type={type}
                 id={id}
+                name={name}
+                value={value}
+                onChange={onChange}
                 className="bg-[#1a1a1a] rounded-[4px] px-[16px] py-[12px] font-normal leading-[1.5] text-[18px] text-white outline-none focus:ring-2 focus:ring-[#d3e97a] transition-all"
             />
         </div>
     );
 }
 
-function FormTextarea({ label, id }: { label: string; id: string }) {
+function FormTextarea({
+    label,
+    id,
+    name,
+    value,
+    onChange,
+}: {
+    label: string;
+    id: string;
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}) {
     return (
         <div className="flex flex-col gap-[8px] w-full">
             <label htmlFor={id} className="font-medium leading-[1.6] text-[#c7c7c7] text-[16px]">
@@ -82,6 +113,9 @@ function FormTextarea({ label, id }: { label: string; id: string }) {
             </label>
             <textarea
                 id={id}
+                name={name}
+                value={value}
+                onChange={onChange}
                 rows={6}
                 className="bg-[#1a1a1a] rounded-[4px] px-[16px] py-[12px] font-normal leading-[1.5] text-[18px] text-white outline-none focus:ring-2 focus:ring-[#d3e97a] transition-all resize-none"
             />
@@ -96,11 +130,42 @@ export function Footer() {
         subject: "",
         message: "",
     });
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission
-        console.log("Form submitted:", formData);
+
+        setSubmitStatus("submitting");
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to send form");
+            }
+
+            setSubmitStatus("success");
+            setFormData({
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+        } catch {
+            setSubmitStatus("error");
+        }
     };
 
     return (
@@ -174,20 +239,55 @@ export function Footer() {
                 <div className="flex flex-col">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-[40px]">
                         <div className="flex flex-col gap-[24px]">
-                            <FormInput label="Name" id="name" />
-                            <FormInput label="Email" type="email" id="email" />
-                            <FormInput label="Subject" id="subject" />
-                            <FormTextarea label="Message" id="message" />
+                            <FormInput
+                                label="Name"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                            />
+                            <FormInput
+                                label="Email"
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                            />
+                            <FormInput
+                                label="Subject"
+                                id="subject"
+                                name="subject"
+                                value={formData.subject}
+                                onChange={handleInputChange}
+                            />
+                            <FormTextarea
+                                label="Message"
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                            />
                         </div>
 
                         <button
                             type="submit"
-                            className="bg-[#d3e97a] h-[54px] rounded-full flex items-center justify-center px-[40px] py-[20px] hover:bg-[#c5db6e] transition-colors"
+                            disabled={submitStatus === "submitting"}
+                            className="bg-[#d3e97a] h-[54px] rounded-full flex items-center justify-center px-[40px] py-[20px] hover:bg-[#c5db6e] transition-colors disabled:opacity-70"
                         >
                             <p className="font-bold leading-none text-[#0a0a0a] text-[16px] uppercase">
-                                Submit
+                                {submitStatus === "submitting" ? "Sending..." : "Submit"}
                             </p>
                         </button>
+
+                        {submitStatus === "success" && (
+                            <p className="font-normal text-[14px] text-[#d3e97a]">Message sent successfully.</p>
+                        )}
+                        {submitStatus === "error" && (
+                            <p className="font-normal text-[14px] text-red-400">
+                                Failed to send message. Please try again.
+                            </p>
+                        )}
                     </form>
                 </div>
             </div>
