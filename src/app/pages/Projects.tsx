@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { type ReactNode, type SyntheticEvent, useMemo, useState } from "react";
+import { type ReactNode, type SyntheticEvent, useEffect, useMemo, useState } from "react";
 import svgPaths from "../../imports/svg-nyhfy7xnj9";
 import imgImage9 from "../../assets/ada6183f66559558faf021a9606a30839d13d925.png";
 import { Navigation } from "../components/Navigation";
@@ -70,6 +70,7 @@ function getTwoImageLayout(first: ImageOrientation, second: ImageOrientation): "
 
 function ProjectCard({ image, tag, className }: { image: string[]; tag?: string; className?: string }) {
     const [imageMetaBySrc, setImageMetaBySrc] = useState<Record<string, ImageMeta>>({});
+    const [fullscreenImageSrc, setFullscreenImageSrc] = useState<string | null>(null);
     const images = image.slice(0, 2);
 
     const layout = useMemo(() => {
@@ -144,30 +145,79 @@ function ProjectCard({ image, tag, className }: { image: string[]; tag?: string;
         });
     }
 
+    useEffect(() => {
+        if (!fullscreenImageSrc) {
+            return;
+        }
+
+        function handleEscape(event: KeyboardEvent) {
+            if (event.key === "Escape") {
+                setFullscreenImageSrc(null);
+            }
+        }
+
+        window.addEventListener("keydown", handleEscape);
+
+        return () => {
+            window.removeEventListener("keydown", handleEscape);
+        };
+    }, [fullscreenImageSrc]);
+
     return (
-        <div className={`bg-[#1a1a1a] overflow-clip relative rounded-[12px] shrink-0 ${className || "w-full h-[400px] lg:w-[600px] lg:h-[600px]"}`}>
-            <div className={containerClassByLayout[layout]}>
-                {images.map((imgSrc, index) => (
-                    <div
-                        key={index}
-                        className={frameClassByLayout[layout]}
-                        style={layout === "mixed" ? { flex: `${mixedFlexValues[index]} 1 0%` } : undefined}
-                    >
-                        <img
-                            alt=""
-                            className={imageClassByLayout[layout]}
-                            onLoad={(event) => handleImageLoad(imgSrc, event)}
-                            src={imgSrc}
-                        />
+        <>
+            <div className={`bg-[#1a1a1a] overflow-clip relative rounded-[12px] shrink-0 ${className || "w-full h-[400px] lg:w-[600px] lg:h-[600px]"}`}>
+                <div className={containerClassByLayout[layout]}>
+                    {images.map((imgSrc, index) => (
+                        <div
+                            key={index}
+                            className={frameClassByLayout[layout]}
+                            style={layout === "mixed" ? { flex: `${mixedFlexValues[index]} 1 0%` } : undefined}
+                        >
+                            <button
+                                aria-label="Open image fullscreen"
+                                className="h-full w-full flex items-center justify-center cursor-zoom-in"
+                                onClick={() => setFullscreenImageSrc(imgSrc)}
+                                type="button"
+                            >
+                                <img
+                                    alt=""
+                                    className={imageClassByLayout[layout]}
+                                    onLoad={(event) => handleImageLoad(imgSrc, event)}
+                                    src={imgSrc}
+                                />
+                            </button>
+                        </div>
+                    ))}
+                </div>
+                {tag && (
+                    <div className="absolute bg-[#0a0a0a] flex items-center justify-center left-[16px] px-[16px] py-[8px] rounded-full top-[16px]">
+                        <p className="font-medium leading-[1.5] text-[14px] text-white whitespace-nowrap">{tag}</p>
                     </div>
-                ))}
+                )}
             </div>
-            {tag && (
-                <div className="absolute bg-[#0a0a0a] flex items-center justify-center left-[16px] px-[16px] py-[8px] rounded-full top-[16px]">
-                    <p className="font-medium leading-[1.5] text-[14px] text-white whitespace-nowrap">{tag}</p>
+
+            {fullscreenImageSrc && (
+                <div
+                    className="fixed inset-0 z-[100] bg-black/90 p-4 md:p-8 flex items-center justify-center"
+                    onClick={() => setFullscreenImageSrc(null)}
+                >
+                    <button
+                        aria-label="Close fullscreen image"
+                        className="absolute right-4 top-4 md:right-8 md:top-8 text-white text-[28px] leading-none"
+                        onClick={() => setFullscreenImageSrc(null)}
+                        type="button"
+                    >
+                        ×
+                    </button>
+                    <img
+                        alt=""
+                        className="max-w-full max-h-full object-contain rounded-[12px]"
+                        onClick={(event) => event.stopPropagation()}
+                        src={fullscreenImageSrc}
+                    />
                 </div>
             )}
-        </div>
+        </>
     );
 }
 
