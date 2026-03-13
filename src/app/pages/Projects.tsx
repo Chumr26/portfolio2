@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 import { type ReactNode, type SyntheticEvent, useEffect, useMemo, useState } from "react";
 import svgPaths from "../../imports/svg-nyhfy7xnj9";
-import imgImage9 from "../../assets/ada6183f66559558faf021a9606a30839d13d925.png";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 
@@ -230,9 +229,9 @@ function ProjectInfo({ label, value }: { label: string; value: string }) {
     );
 }
 
-function ProjectLink({ text, icon }: { text: string; icon?: ReactNode }) {
+function ProjectLink({ text, href, icon }: { text: string; href?: string; icon?: ReactNode }) {
     return (
-        <a href="#" className="flex flex-col gap-[4px] group">
+        <a href={href || "#"} className="flex flex-col gap-[4px] group">
             <div className="flex gap-[4px] items-center">
                 <p className="font-bold leading-[1.5] text-[#d3e97a] text-[16px] uppercase">{text}</p>
                 {icon}
@@ -241,6 +240,152 @@ function ProjectLink({ text, icon }: { text: string; icon?: ReactNode }) {
         </a>
     );
 }
+
+type ProjectInfoItem = {
+    label: string;
+    value: string;
+};
+
+type ProjectAction = {
+    text: string;
+    href?: string;
+    icon?: "arrow" | "github";
+};
+
+type FeaturedProject = {
+    id: string;
+    title: string;
+    description: string;
+    images: string[];
+    tag?: string;
+    info: ProjectInfoItem[];
+    actions: ProjectAction[];
+};
+
+const FEATURED_PROJECTS: FeaturedProject[] = [
+    {
+        id: "mern_bookstore",
+        title: "Promotional landing page for our favorite show",
+        description:
+            "Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.",
+        images: ["/projects/mern_bookstore1.jpeg", "/projects/mern_bookstore2.jpeg"],
+        info: [
+            { label: "Year", value: "2023" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [
+            { text: "Live Demo", href: "#", icon: "arrow" },
+            { text: "See on Github", href: "#", icon: "github" }
+        ]
+    },
+    {
+        id: "php_bookstore",
+        title: "E-commerce product page",
+        description:
+            "Successfully crafted an engaging product page featuring a dynamic lightbox gallery and seamless cart functionality, showcasing proficiency in JavaScript development.",
+        images: ["/projects/php_bookstore1.png", "/projects/php_bookstore2.jpg"],
+        // tag: "Challenge",
+        info: [
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [
+            { text: "Live Demo", href: "#", icon: "arrow" },
+            { text: "See on Github", href: "#", icon: "github" }
+        ]
+    },
+    {
+        id: "noter",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/noter1.png", "/projects/noter2.png"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+    {
+        id: "college",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/college1.png", "/projects/college2.png"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+     {
+        id: "furniture",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/furniture1.jpeg", "/projects/furniture2.jpeg"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+     {
+        id: "blog",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/blog.png"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+     {
+        id: "y2m",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/y2m.png"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+     {
+        id: "netflix",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/netflix1.png", "/projects/netflix2.png"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+     {
+        id: "spotify",
+        title: "Blog site for World News",
+        description:
+            "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+        images: ["/projects/spotify1.png", "/projects/spotify2.png"],
+        info: [
+            { label: "Client", value: "World News" },
+            { label: "Year", value: "2022" },
+            { label: "Role", value: "Front-end Developer" }
+        ],
+        actions: [{ text: "View project", href: "#", icon: "arrow" }]
+    },
+];
 
 function ArrowIcon() {
     return (
@@ -273,90 +418,37 @@ export default function Projects() {
                 </div>
 
                 <div className="flex flex-col gap-[80px] md:gap-[120px]">
-                    {/* Project 1 */}
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
-                        {/* <ProjectCard image={imgWork} tag="Conceptual Work" /> */}
-                        <ProjectCard image={["/projects/mern_bookstore1.jpeg", "/projects/mern_bookstore2.jpeg"]} />
-                        <div className="flex flex-col gap-[48px] flex-1 min-w-0">
-                            <div className="flex flex-col gap-[32px]">
-                                <div className="flex flex-col gap-[16px]">
-                                    <h3 className="font-medium leading-[1.4] text-[28px] md:text-[32px] text-white">
-                                        Promotional landing page for our favorite show
-                                    </h3>
-                                    <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                        Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.
-                                    </p>
-                                </div>
-                                <div className="flex flex-col gap-[16px]">
-                                    <p className="font-semibold leading-[1.5] text-[16px] text-white uppercase">Project Info</p>
-                                    <div className="border-b border-[#484848]">
-                                        <ProjectInfo label="Year" value="2023" />
-                                        <ProjectInfo label="Role" value="Front-end Developer" />
+                    {FEATURED_PROJECTS.map((project) => (
+                        <div key={project.id} className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
+                            <ProjectCard image={project.images} tag={project.tag} />
+                            <div className="flex flex-col gap-[48px] flex-1 min-w-0">
+                                <div className="flex flex-col gap-[32px]">
+                                    <div className="flex flex-col gap-[16px]">
+                                        <h3 className="font-medium leading-[1.4] text-[28px] md:text-[32px] text-white">{project.title}</h3>
+                                        <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">{project.description}</p>
+                                    </div>
+                                    <div className="flex flex-col gap-[16px]">
+                                        <p className="font-semibold leading-[1.5] text-[16px] text-white uppercase">Project Info</p>
+                                        <div className="border-b border-[#484848]">
+                                            {project.info.map((infoItem) => (
+                                                <ProjectInfo key={`${project.id}-${infoItem.label}`} label={infoItem.label} value={infoItem.value} />
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="flex gap-[24px] flex-wrap">
-                                <ProjectLink text="Live Demo" icon={<ArrowIcon />} />
-                                <ProjectLink text="See on Github" icon={<GitHubIcon />} />
+                                <div className="flex gap-[24px] flex-wrap">
+                                    {project.actions.map((action) => (
+                                        <ProjectLink
+                                            key={`${project.id}-${action.text}`}
+                                            href={action.href}
+                                            icon={action.icon === "github" ? <GitHubIcon /> : action.icon === "arrow" ? <ArrowIcon /> : undefined}
+                                            text={action.text}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Project 2 */}
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
-                        <ProjectCard image={["/projects/spotify1.png", "/projects/spotify2.png"]} />
-                        <div className="flex flex-col gap-[48px] flex-1 min-w-0">
-                            <div className="flex flex-col gap-[32px]">
-                                <div className="flex flex-col gap-[16px]">
-                                    <h3 className="font-medium leading-[1.4] text-[28px] md:text-[32px] text-white">
-                                        Blog site for World News
-                                    </h3>
-                                    <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                        Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.
-                                    </p>
-                                </div>
-                                <div className="flex flex-col gap-[16px]">
-                                    <p className="font-semibold leading-[1.5] text-[16px] text-white uppercase">Project Info</p>
-                                    <div className="border-b border-[#484848]">
-                                        <ProjectInfo label="Client" value="World News" />
-                                        <ProjectInfo label="Year" value="2022" />
-                                        <ProjectInfo label="Role" value="Front-end Developer" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex gap-[24px]">
-                                <ProjectLink text="View project" icon={<ArrowIcon />} />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Project 3 */}
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
-                        <ProjectCard image={["/projects/php_bookstore1.png", "/projects/php_bookstore2.jpg"]} tag="Challenge" />
-                        <div className="flex flex-col gap-[48px] flex-1 min-w-0">
-                            <div className="flex flex-col gap-[32px]">
-                                <div className="flex flex-col gap-[16px]">
-                                    <h3 className="font-medium leading-[1.4] text-[28px] md:text-[32px] text-white">
-                                        E-commerce product page
-                                    </h3>
-                                    <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                        Successfully crafted an engaging product page featuring a dynamic lightbox gallery and seamless cart functionality, showcasing proficiency in JavaScript development.
-                                    </p>
-                                </div>
-                                <div className="flex flex-col gap-[16px]">
-                                    <p className="font-semibold leading-[1.5] text-[16px] text-white uppercase">Project Info</p>
-                                    <div className="border-b border-[#484848]">
-                                        <ProjectInfo label="Year" value="2022" />
-                                        <ProjectInfo label="Role" value="Front-end Developer" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex gap-[24px] flex-wrap">
-                                <ProjectLink text="Live Demo" icon={<ArrowIcon />} />
-                                <ProjectLink text="See on Github" icon={<GitHubIcon />} />
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </section>
 
