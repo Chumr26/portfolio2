@@ -2,6 +2,7 @@ import svgPaths from "../../imports/svg-nyhfy7xnj9";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import cSharpCertificateImage from "../../assets/c_sharp.png";
 
 function ArrowIcon() {
   return (
@@ -40,7 +41,7 @@ function CertificateCard({
   return (
     <div className="bg-[#1a1a1a] rounded-[16px] overflow-hidden hover:bg-[#222] transition-colors border border-[#484848]/30">
       {/* Certificate Image */}
-      <div className="relative w-full h-[240px] bg-[#0a0a0a] overflow-hidden">
+      <div className="relative w-full h-[340px] bg-[#0a0a0a] overflow-hidden">
         <ImageWithFallback
           src={image}
           alt={`${title} certificate`}
@@ -53,25 +54,25 @@ function CertificateCard({
       <div className="p-6 md:p-8 flex flex-col gap-6">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <h3 className="font-['JetBrains_Mono'] font-medium leading-[1.3] text-[24px] md:text-[28px] text-white">
+            <h3 className="font-medium leading-[1.3] text-[24px] md:text-[28px] text-white">
               {title}
             </h3>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-              <p className="font-['JetBrains_Mono'] font-semibold leading-[1.5] text-[#d3e97a] text-[18px]">{issuer}</p>
-              <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px]">{date}</p>
+              <p className="font-semibold leading-[1.5] text-[#d3e97a] text-[18px]">{issuer}</p>
+              <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px]">{date}</p>
             </div>
           </div>
           
-          <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+          <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
             {description}
           </p>
 
           {credentialId && (
             <div className="flex flex-col gap-2">
-              <p className="font-['JetBrains_Mono'] font-medium leading-[1.5] text-[14px] text-[#c7c7c7] uppercase">
+              <p className="font-medium leading-[1.5] text-[14px] text-[#c7c7c7] uppercase">
                 Credential ID
               </p>
-              <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[14px] text-white">
+              <p className="font-normal leading-[1.5] text-[14px] text-white">
                 {credentialId}
               </p>
             </div>
@@ -83,7 +84,7 @@ function CertificateCard({
                 key={index}
                 className="bg-[#0a0a0a] px-4 py-2 rounded-full border border-[#484848]"
               >
-                <p className="font-['JetBrains_Mono'] font-medium leading-none text-[14px] text-white">{skill}</p>
+                <p className="font-medium leading-none text-[14px] text-white">{skill}</p>
               </div>
             ))}
           </div>
@@ -92,7 +93,7 @@ function CertificateCard({
         <div className="flex gap-4 pt-2">
           <a href="#" className="flex flex-col gap-[4px] group">
             <div className="flex gap-[4px] items-center">
-              <p className="font-['JetBrains_Mono'] font-bold leading-[1.5] text-[#d3e97a] text-[14px] uppercase">
+              <p className="font-bold leading-[1.5] text-[#d3e97a] text-[14px] uppercase">
                 View Certificate
               </p>
               <ArrowIcon />
@@ -108,8 +109,8 @@ function CertificateCard({
 function StatCard({ number, label }: { number: string; label: string }) {
   return (
     <div className="bg-[#1a1a1a] rounded-[16px] p-8 flex flex-col gap-2 border border-[#484848]/30">
-      <p className="font-['JetBrains_Mono'] leading-none text-[56px] md:text-[72px] text-[#d3e97a]">{number}</p>
-      <p className="font-['JetBrains_Mono'] font-medium leading-[1.5] text-[16px] md:text-[18px] text-[#c7c7c7]">
+      <p className="leading-none text-[56px] md:text-[72px] text-[#d3e97a]">{number}</p>
+      <p className="font-medium leading-[1.5] text-[16px] md:text-[18px] text-[#c7c7c7]">
         {label}
       </p>
     </div>
@@ -126,7 +127,7 @@ export default function Certificates() {
         "Completed comprehensive training in advanced React patterns, hooks, performance optimization, and testing strategies. Gained expertise in building scalable and maintainable React applications.",
       credentialId: "CERT-ADV-REACT-2024-0125",
       skills: ["React", "Hooks", "Performance", "Testing"],
-      image: "https://images.unsplash.com/photo-1766722906733-609eebf3b63a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGFjaGlldmVtZW50JTIwYXdhcmR8ZW58MXx8fHwxNzczMjg0NDU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: cSharpCertificateImage,
     },
     {
       title: "Web Accessibility Specialist",
@@ -188,18 +189,18 @@ export default function Certificates() {
       <section className="container mx-auto px-4 md:px-[60px] pt-[100px] md:pt-[160px] pb-[80px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[80px] items-start">
           <div className="flex flex-col gap-[24px]">
-            <h1 className="font-['JetBrains_Mono'] leading-[0.9] text-[60px] md:text-[80px] lg:text-[101px] text-white">
+            <h1 className="leading-[0.9] text-[60px] md:text-[80px] lg:text-[101px] text-white">
               Certificates
             </h1>
-            <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+            <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
               Continuous learning and professional development
             </p>
           </div>
           <div className="flex flex-col gap-[16px]">
-            <h2 className="font-['JetBrains_Mono'] font-medium leading-[1.4] text-[24px] md:text-[32px] text-white">
+            <h2 className="font-medium leading-[1.4] text-[24px] md:text-[32px] text-white">
               Committed to continuous growth and staying current with industry standards.
             </h2>
-            <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+            <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
               I believe in lifelong learning and regularly pursue certifications to enhance my skills and knowledge. Each certification represents dedication to mastering new technologies and best practices in web development.
             </p>
           </div>
@@ -222,10 +223,10 @@ export default function Certificates() {
       {/* Certificates Grid */}
       <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
         <div className="flex flex-col gap-[8px] mb-[48px]">
-          <h2 className="font-['JetBrains_Mono'] leading-none text-[56px] md:text-[76px] text-white">
+          <h2 className="leading-none text-[56px] md:text-[76px] text-white">
             All Certificates
           </h2>
-          <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+          <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
             A collection of professional certifications and completed courses.
           </p>
         </div>
@@ -243,48 +244,48 @@ export default function Certificates() {
       {/* Learning Path Section */}
       <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[80px]">
-          <h2 className="font-['JetBrains_Mono'] leading-none text-[56px] md:text-[76px] text-white">
+          <h2 className="leading-none text-[56px] md:text-[76px] text-white">
             Currently Learning
           </h2>
           <div className="flex flex-col gap-[32px]">
             <div className="flex flex-col gap-[16px]">
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-['JetBrains_Mono'] font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
+                <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
                   Advanced TypeScript Patterns
                 </h3>
-                <span className="bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-['JetBrains_Mono'] font-bold text-[12px] uppercase whitespace-nowrap">
+                <span className="bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap">
                   In Progress
                 </span>
               </div>
-              <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+              <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
                 Diving deep into TypeScript's advanced type system, generics, conditional types, and building type-safe applications.
               </p>
             </div>
 
             <div className="flex flex-col gap-[16px]">
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-['JetBrains_Mono'] font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
+                <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
                   Web Performance Optimization
                 </h3>
-                <span className="bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-['JetBrains_Mono'] font-bold text-[12px] uppercase whitespace-nowrap">
+                <span className="bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap">
                   In Progress
                 </span>
               </div>
-              <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+              <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
                 Learning advanced techniques for optimizing web application performance, including code splitting, lazy loading, and caching strategies.
               </p>
             </div>
 
             <div className="flex flex-col gap-[16px]">
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-['JetBrains_Mono'] font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
+                <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
                   Next.js 14 & Server Components
                 </h3>
-                <span className="bg-[#484848] text-white px-3 py-1 rounded-full font-['JetBrains_Mono'] font-bold text-[12px] uppercase whitespace-nowrap">
+                <span className="bg-[#484848] text-white px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap">
                   Planned
                 </span>
               </div>
-              <p className="font-['JetBrains_Mono'] font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+              <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
                 Exploring the latest features in Next.js including Server Components, Server Actions, and the App Router.
               </p>
             </div>
