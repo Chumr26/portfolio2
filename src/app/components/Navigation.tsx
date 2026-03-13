@@ -64,7 +64,7 @@ export function Navigation() {
                         <Link
                             to="/"
                             onClick={() => setMobileMenuOpen(false)}
-                            className={`leading-[1.6] transition-colors py-2 ${isActive("/about") ? "text-white" : "text-[#c7c7c7]"
+                            className={`leading-[1.6] transition-colors py-2 ${isActive("/") ? "text-white" : "text-[#c7c7c7]"
                                 }`}
                         >
                             About
@@ -72,7 +72,7 @@ export function Navigation() {
                         <Link
                             to="/projects"
                             onClick={() => setMobileMenuOpen(false)}
-                            className={`leading-[1.6] transition-colors py-2 ${isActive("/") ? "text-white" : "text-[#c7c7c7]"
+                            className={`leading-[1.6] transition-colors py-2 ${isActive("/projects") ? "text-white" : "text-[#c7c7c7]"
                                 }`}
                         >
                             Projects

@@ -1,12 +1,11 @@
 import { Link } from "react-router";
-import imgWork from "../../assets/5dcd97dc5eedd121a4e28d7d486be0fccd32ffb8.png";
+import { type ReactNode, type SyntheticEvent, useMemo, useState } from "react";
 import svgPaths from "../../imports/svg-nyhfy7xnj9";
-import imgImage10 from "../../assets/b4ad9145f503384fa2e01584bf6a2e40a529a372.png";
 import imgImage9 from "../../assets/ada6183f66559558faf021a9606a30839d13d925.png";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 
-function SocialButton({ children, href }: { children: React.ReactNode; href?: string }) {
+function SocialButton({ children, href }: { children: ReactNode; href?: string }) {
     return (
         <a
             href={href || "#"}
@@ -42,11 +41,126 @@ function GitHubIcon() {
     );
 }
 
-function ProjectCard({ image, tag, className }: { image: string; tag?: string; className?: string }) {
+type ImageOrientation = "portrait" | "landscape" | "square";
+
+type ImageMeta = {
+    orientation: ImageOrientation;
+    aspectRatio: number;
+};
+
+function getImageOrientation(width: number, height: number): ImageOrientation {
+    if (width === height) {
+        return "square";
+    }
+
+    return width > height ? "landscape" : "portrait";
+}
+
+function getTwoImageLayout(first: ImageOrientation, second: ImageOrientation): "left-right" | "top-bottom" | "mixed" {
+    if (first === "portrait" && second === "portrait") {
+        return "left-right";
+    }
+
+    if (first === "landscape" && second === "landscape") {
+        return "top-bottom";
+    }
+
+    return "mixed";
+}
+
+function ProjectCard({ image, tag, className }: { image: string[]; tag?: string; className?: string }) {
+    const [imageMetaBySrc, setImageMetaBySrc] = useState<Record<string, ImageMeta>>({});
+    const images = image.slice(0, 2);
+
+    const layout = useMemo(() => {
+        if (images.length <= 1) {
+            return "single" as const;
+        }
+
+        const firstOrientation = imageMetaBySrc[images[0]]?.orientation;
+        const secondOrientation = imageMetaBySrc[images[1]]?.orientation;
+
+        if (!firstOrientation || !secondOrientation) {
+            return "mixed" as const;
+        }
+
+        return getTwoImageLayout(firstOrientation, secondOrientation);
+    }, [images, imageMetaBySrc]);
+
+    const containerClassByLayout = {
+        single: "absolute inset-0 flex items-center justify-center p-8",
+        "left-right": "absolute inset-0 flex flex-row items-stretch gap-4 p-6",
+        "top-bottom": "absolute inset-0 flex flex-col items-stretch gap-4 p-6",
+        mixed: "absolute inset-0 flex flex-row items-stretch gap-4 p-6"
+    } as const;
+
+    const frameClassByLayout = {
+        single: "h-full w-full flex items-center justify-center",
+        "left-right": "flex-1 h-full min-w-0 flex items-center justify-center",
+        "top-bottom": "w-full flex-1 min-h-0 flex items-center justify-center",
+        mixed: "h-full min-w-0 flex items-center justify-center"
+    } as const;
+
+    const imageClassByLayout = {
+        single: "max-w-full max-h-full object-contain rounded-[12px]",
+        "left-right": "max-w-full max-h-full object-contain rounded-[12px]",
+        "top-bottom": "max-w-full max-h-full object-contain rounded-[12px]",
+        mixed: "h-full w-auto max-w-full object-contain rounded-[12px]"
+    } as const;
+
+    const mixedFlexValues = useMemo(() => {
+        if (layout !== "mixed" || images.length !== 2) {
+            return [1, 1] as const;
+        }
+
+        const firstRatio = imageMetaBySrc[images[0]]?.aspectRatio ?? 1;
+        const secondRatio = imageMetaBySrc[images[1]]?.aspectRatio ?? 1;
+
+        return [Math.max(firstRatio, 0.4), Math.max(secondRatio, 0.4)] as const;
+    }, [images, imageMetaBySrc, layout]);
+
+    function handleImageLoad(src: string, event: SyntheticEvent<HTMLImageElement>) {
+        const { naturalWidth, naturalHeight } = event.currentTarget;
+        const aspectRatio = naturalHeight === 0 ? 1 : naturalWidth / naturalHeight;
+        const nextMeta: ImageMeta = {
+            orientation: getImageOrientation(naturalWidth, naturalHeight),
+            aspectRatio
+        };
+
+        setImageMetaBySrc((prev) => {
+            const currentMeta = prev[src];
+            if (
+                currentMeta &&
+                currentMeta.orientation === nextMeta.orientation &&
+                currentMeta.aspectRatio === nextMeta.aspectRatio
+            ) {
+                return prev;
+            }
+
+            return {
+                ...prev,
+                [src]: nextMeta
+            };
+        });
+    }
+
     return (
         <div className={`bg-[#1a1a1a] overflow-clip relative rounded-[12px] shrink-0 ${className || "w-full h-[400px] lg:w-[600px] lg:h-[600px]"}`}>
-            <div className="absolute inset-0 flex items-center justify-center p-8">
-                <img alt="" className="max-w-full max-h-full object-contain rounded-[12px]" src={image} />
+            <div className={containerClassByLayout[layout]}>
+                {images.map((imgSrc, index) => (
+                    <div
+                        key={index}
+                        className={frameClassByLayout[layout]}
+                        style={layout === "mixed" ? { flex: `${mixedFlexValues[index]} 1 0%` } : undefined}
+                    >
+                        <img
+                            alt=""
+                            className={imageClassByLayout[layout]}
+                            onLoad={(event) => handleImageLoad(imgSrc, event)}
+                            src={imgSrc}
+                        />
+                    </div>
+                ))}
             </div>
             {tag && (
                 <div className="absolute bg-[#0a0a0a] flex items-center justify-center left-[16px] px-[16px] py-[8px] rounded-full top-[16px]">
@@ -66,7 +180,7 @@ function ProjectInfo({ label, value }: { label: string; value: string }) {
     );
 }
 
-function ProjectLink({ text, icon }: { text: string; icon?: React.ReactNode }) {
+function ProjectLink({ text, icon }: { text: string; icon?: ReactNode }) {
     return (
         <a href="#" className="flex flex-col gap-[4px] group">
             <div className="flex gap-[4px] items-center">
@@ -104,14 +218,15 @@ export default function Projects() {
                 <div className="flex flex-col gap-[8px] mb-[80px]">
                     <h2 className="leading-none text-[56px] md:text-[76px] text-white">Featured Projects</h2>
                     <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                        Here are some of the selected projects that showcase my passion for front-end development.
+                        Here are some of the selected projects that showcase my passion for software development.
                     </p>
                 </div>
 
                 <div className="flex flex-col gap-[80px] md:gap-[120px]">
                     {/* Project 1 */}
                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
-                        <ProjectCard image={imgWork} tag="Conceptual Work" />
+                        {/* <ProjectCard image={imgWork} tag="Conceptual Work" /> */}
+                        <ProjectCard image={["/projects/mern_bookstore1.jpeg", "/projects/mern_bookstore2.jpeg"]} />
                         <div className="flex flex-col gap-[48px] flex-1 min-w-0">
                             <div className="flex flex-col gap-[32px]">
                                 <div className="flex flex-col gap-[16px]">
@@ -139,7 +254,7 @@ export default function Projects() {
 
                     {/* Project 2 */}
                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
-                        <ProjectCard image={imgImage10} />
+                        <ProjectCard image={["/projects/spotify1.png", "/projects/spotify2.png"]} />
                         <div className="flex flex-col gap-[48px] flex-1 min-w-0">
                             <div className="flex flex-col gap-[32px]">
                                 <div className="flex flex-col gap-[16px]">
@@ -167,7 +282,7 @@ export default function Projects() {
 
                     {/* Project 3 */}
                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start lg:items-center">
-                        <ProjectCard image={imgImage9} tag="Challenge" />
+                        <ProjectCard image={["/projects/php_bookstore1.png", "/projects/php_bookstore2.jpg"]} tag="Challenge" />
                         <div className="flex flex-col gap-[48px] flex-1 min-w-0">
                             <div className="flex flex-col gap-[32px]">
                                 <div className="flex flex-col gap-[16px]">

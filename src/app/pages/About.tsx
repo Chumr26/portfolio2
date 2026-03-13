@@ -282,35 +282,35 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="JavaScript"
-                                image="/javascript.png"
+                                image="/toolkit/javascript.png"
                             />
                             <TechStackLogo
                                 name="TypeScript"
-                                image="/typescript.png"
+                                image="/toolkit/typescript.png"
                             />
                             <TechStackLogo
                                 name="PHP"
-                                image="/php.png"
+                                image="/toolkit/php.png"
                             />
                             <TechStackLogo
                                 name="C#"
-                                image="/c_sharp.png"
+                                image="/toolkit/c_sharp.png"
                             />
                             <TechStackLogo
                                 name="Python"
-                                image="/python.webp"
+                                image="/toolkit/python.webp"
                             />
                             <TechStackLogo
                                 name="Java"
-                                image="/java.png"
+                                image="/toolkit/java.png"
                             />
                             <TechStackLogo
                                 name="C"
-                                image="/c.png"
+                                image="/toolkit/c.png"
                             />
                             <TechStackLogo
                                 name="C++"
-                                image="/c++.png"
+                                image="/toolkit/c++.png"
                             />
                         </div>
                     </div>
@@ -322,35 +322,35 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="React"
-                                image="/react.png"
+                                image="/toolkit/react.png"
                             />
                             <TechStackLogo
                                 name="Redux"
-                                image="/redux.svg"
+                                image="/toolkit/redux.svg"
                             />
                             <TechStackLogo
                                 name="Angular"
-                                image="/angular.png"
+                                image="/toolkit/angular.png"
                             />
                             <TechStackLogo
                                 name="Bootstrap"
-                                image="/bootstrap.png"
+                                image="/toolkit/bootstrap.png"
                             />
                             <TechStackLogo
                                 name="Tailwind"
-                                image="/tailwind.png"
+                                image="/toolkit/tailwind.png"
                             />
                             <TechStackLogo
                                 name="Vite"
-                                image="/vite.png"
+                                image="/toolkit/vite.png"
                             />
                             <TechStackLogo
                                 name="Webpack"
-                                image="/webpack.png"
+                                image="/toolkit/webpack.png"
                             />
                             <TechStackLogo
                                 name="Blazor"
-                                image="/blazor.png"
+                                image="/toolkit/blazor.png"
                             />
                         </div>
                     </div>
@@ -363,35 +363,35 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Node.js"
-                                image="/nodejs.webp"
+                                image="/toolkit/nodejs.webp"
                             />
                             <TechStackLogo
                                 name="Express.js"
-                                image="/expressjs.png"
+                                image="/toolkit/expressjs.png"
                             />
                             <TechStackLogo
                                 name="Next.js"
-                                image="/nextjs.webp"
+                                image="/toolkit/nextjs.webp"
                             />
                             <TechStackLogo
                                 name="Nest.js"
-                                image="/nestjs.svg"
+                                image="/toolkit/nestjs.svg"
                             />
                             <TechStackLogo
                                 name=".NET"
-                                image="/dotnet.png"
+                                image="/toolkit/dotnet.png"
                             />
                             <TechStackLogo
                                 name="Flask"
-                                image="/flask.jpg"
+                                image="/toolkit/flask.jpg"
                             />
                             <TechStackLogo
                                 name="Nginx"
-                                image="/nginx.png"
+                                image="/toolkit/nginx.png"
                             />
                             <TechStackLogo
                                 name="Apache"
-                                image="/apache.jpg"
+                                image="/toolkit/apache.jpg"
                             />
                         </div>
                     </div>
@@ -404,15 +404,15 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="React Native"
-                                image="/react_native.webp"
+                                image="/toolkit/react_native.webp"
                             />
                             <TechStackLogo
                                 name="Expo"
-                                image="/expo.png"
+                                image="/toolkit/expo.png"
                             />
                             <TechStackLogo
                                 name="Flutter"
-                                image="/flutter.png"
+                                image="/toolkit/flutter.png"
                             />
                         </div>
                     </div>
@@ -425,27 +425,27 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Microsoft SQL Server"
-                                image="/microsoft_sql_server.jpg"
+                                image="/toolkit/microsoft_sql_server.jpg"
                             />
                             <TechStackLogo
                                 name="PostgreSQL"
-                                image="/postgresql.png"
+                                image="/toolkit/postgresql.png"
                             />
                             <TechStackLogo
                                 name="MariaDB"
-                                image="/mariadb.png"
+                                image="/toolkit/mariadb.png"
                             />
                             <TechStackLogo
                                 name="MongoDB"
-                                image="/mongodb.png"
+                                image="/toolkit/mongodb.png"
                             />
                             <TechStackLogo
                                 name="Redis"
-                                image="/redis.svg"
+                                image="/toolkit/redis.svg"
                             />
                             <TechStackLogo
                                 name="Elasticsearch"
-                                image="/elasticsearch.svg"
+                                image="/toolkit/elasticsearch.svg"
                             />
                         </div>
                     </div>
@@ -458,19 +458,19 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Linux"
-                                image="/linux.jpg"
+                                image="/toolkit/linux.jpg"
                             />
                             <TechStackLogo
                                 name="Docker"
-                                image="/docker.png"
+                                image="/toolkit/docker.png"
                             />
                             <TechStackLogo
                                 name="Git"
-                                image="/git.png"
+                                image="/toolkit/git.png"
                             />
                             <TechStackLogo
                                 name="GitHub"
-                                image="/github.webp"
+                                image="/toolkit/github.webp"
                             />
                         </div>
                     </div>
@@ -483,39 +483,39 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Kali Linux"
-                                image="/kali_linux.png"
+                                image="/toolkit/kali_linux.png"
                             />
                             <TechStackLogo
                                 name="Metasploit"
-                                image="/metasploit.png"
+                                image="/toolkit/metasploit.png"
                             />
                             <TechStackLogo
                                 name="Wireshark"
-                                image="/wireshark.png"
+                                image="/toolkit/wireshark.png"
                             />
                             <TechStackLogo
                                 name="Nmap"
-                                image="/nmap.png"
+                                image="/toolkit/nmap.png"
                             />
                             <TechStackLogo
                                 name="Burp Suite"
-                                image="/burp_suite.jpg"
+                                image="/toolkit/burp_suite.jpg"
                             />
                             <TechStackLogo
                                 name="OWASP"
-                                image="/owasp.webp"
+                                image="/toolkit/owasp.webp"
                             />
                             <TechStackLogo
                                 name="John the Ripper"
-                                image="/john_the_ripper.png"
+                                image="/toolkit/john_the_ripper.png"
                             />
                             <TechStackLogo
                                 name="Hydra"
-                                image="/hydra.svg"
+                                image="/toolkit/hydra.svg"
                             />
                             <TechStackLogo
                                 name="SQLmap"
-                                image="/sqlmap.png"
+                                image="/toolkit/sqlmap.png"
                             />
                         </div>
                     </div>
