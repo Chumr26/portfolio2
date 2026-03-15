@@ -1,7 +1,4 @@
 import svgPaths from "../../imports/svg-3c6obhzfe4";
-import img6Dd8E389A31 from "../../assets/b6b96aad2b8137858cdaeb7d1d8e14e4e0f0f752.png";
-import imgPotrait from "../../assets/potrait.png";
-
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -140,7 +137,7 @@ export default function About() {
                             <img
                                 alt="Nguyen Anh Khoa Portrait"
                                 className="absolute inset-0 w-full h-full object-cover object-top pt-[37px]"
-                                src={imgPotrait}
+                                src="/potrait.png"
                             />
                         </div>
                     </div>
