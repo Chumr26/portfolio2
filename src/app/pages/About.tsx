@@ -139,6 +139,9 @@ export default function About() {
                             <img
                                 alt="Nguyen Anh Khoa Portrait"
                                 className="absolute inset-0 w-full h-full object-cover object-top pt-[37px]"
+                                decoding="async"
+                                fetchPriority="high"
+                                loading="eager"
                                 src="/potrait.png"
                             />
                         </div>
