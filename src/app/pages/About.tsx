@@ -6,6 +6,7 @@ import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { T } from "node_modules/react-router/dist/development/index-react-server-client-MKTlCGL3.mjs";
+import { useRouteScrollMemory } from "../hooks/useRouteScrollMemory";
 
 function SocialButton({ children, href }: { children: React.ReactNode; href?: string }) {
     return (
@@ -95,6 +96,8 @@ function TechStackLogo({ name, image }: { name: string; image: string }) {
 }
 
 export default function About() {
+    useRouteScrollMemory();
+
     return (
         <div className="bg-[#0a0a0a] min-h-screen w-full">
             <Navigation />

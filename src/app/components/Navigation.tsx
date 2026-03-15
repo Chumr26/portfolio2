@@ -1,11 +1,20 @@
 import { Link, useLocation } from "react-router";
-import { useState } from "react";
+import { type MouseEvent, useState } from "react";
 
 export function Navigation() {
     const location = useLocation();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const isActive = (path: string) => location.pathname === path;
+
+    const handleContactClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        const contactSection = document.getElementById("contact");
+
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-[#484848]/50">
@@ -39,6 +48,7 @@ export function Navigation() {
                     </Link>
                     <a
                         href="#contact"
+                        onClick={handleContactClick}
                         className="leading-[1.6] text-[#c7c7c7] hover:text-white transition-colors"
                     >
                         Contact
@@ -87,7 +97,10 @@ export function Navigation() {
                         </Link>
                         <a
                             href="#contact"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={(event) => {
+                                handleContactClick(event);
+                                setMobileMenuOpen(false);
+                            }}
                             className="leading-[1.6] text-[#c7c7c7] py-2"
                         >
                             Contact

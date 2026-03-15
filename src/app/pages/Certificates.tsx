@@ -3,6 +3,7 @@ import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import cSharpCertificateImage from "../../assets/c_sharp.png";
+import { useRouteScrollMemory } from "../hooks/useRouteScrollMemory";
 
 function ArrowIcon() {
   return (
@@ -118,6 +119,8 @@ function StatCard({ number, label }: { number: string; label: string }) {
 }
 
 export default function Certificates() {
+  useRouteScrollMemory();
+
   const certificates = [
     {
       title: "Advanced React Development",

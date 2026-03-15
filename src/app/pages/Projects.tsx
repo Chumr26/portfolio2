@@ -9,6 +9,7 @@ import {
 import svgPaths from '../../imports/svg-nyhfy7xnj9';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
+import { useRouteScrollMemory } from '../hooks/useRouteScrollMemory';
 
 function SocialButton({
     children,
@@ -515,8 +516,15 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
             {
                 label: 'Stack',
                 value: 'Nextjs, Tailwind CSS, MongoDB Atlas, NextAuth, OAuth',
-            },],
-        actions: [{ text: 'View project', href: 'https://github.com/Chumr26/netflix_clone', icon: 'arrow' }],
+            },
+        ],
+        actions: [
+            {
+                text: 'See on Github',
+                href: 'https://github.com/Chumr26/netflix_clone',
+                icon: 'github',
+            },
+        ],
     },
     {
         id: 'spotify',
@@ -541,7 +549,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
                 text: 'See on Github',
                 href: 'https://github.com/Chumr26/spotify_clone',
                 icon: 'github',
-            }
+            },
         ],
     },
     {
@@ -554,16 +562,18 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
             { label: 'Timestamp', value: '09/2023 - 10/2023' },
             { label: 'Stack', value: 'html, css, vanilla javascript, APIs' },
         ],
-        actions: [{
-            text: 'View project',
-            href: 'https://y2m.nguyenanhkhoa.me/',
-            icon: 'arrow',
-        },
-        {
-            text: 'See on Github',
-            href: 'https://github.com/Chumr26/y2m',
-            icon: 'github',
-        },],
+        actions: [
+            {
+                text: 'View project',
+                href: 'https://y2m.nguyenanhkhoa.me/',
+                icon: 'arrow',
+            },
+            {
+                text: 'See on Github',
+                href: 'https://github.com/Chumr26/y2m',
+                icon: 'github',
+            },
+        ],
     },
     {
         id: 'music_player',
@@ -575,16 +585,18 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
             { label: 'Timestamp', value: '08/2023 - 09/2023' },
             { label: 'Stack', value: 'html, css, vanilla javascript' },
         ],
-        actions: [{
-            text: 'View project',
-            href: 'https://music-player.nguyenanhkhoa.me/',
-            icon: 'arrow',
-        },
-        {
-            text: 'See on Github',
-            href: 'https://github.com/Chumr26/music_player',
-            icon: 'github',
-        },],
+        actions: [
+            {
+                text: 'View project',
+                href: 'https://music-player.nguyenanhkhoa.me/',
+                icon: 'arrow',
+            },
+            {
+                text: 'See on Github',
+                href: 'https://github.com/Chumr26/music_player',
+                icon: 'github',
+            },
+        ],
     },
     {
         id: 'todos_list',
@@ -596,19 +608,19 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
             { label: 'Timestamp', value: '07/2023 - 08/2023' },
             { label: 'Stack', value: 'html, css, vanilla javascript' },
         ],
-        actions: [{
-            text: 'View project',
-            href: 'https://todos.nguyenanhkhoa.me/',
-            icon: 'arrow',
-        },
-        {
-            text: 'See on Github',
-            href: 'https://github.com/Chumr26/todos_app',
-            icon: 'github',
-        },],
+        actions: [
+            {
+                text: 'View project',
+                href: 'https://todos.nguyenanhkhoa.me/',
+                icon: 'arrow',
+            },
+            {
+                text: 'See on Github',
+                href: 'https://github.com/Chumr26/todos_app',
+                icon: 'github',
+            },
+        ],
     },
-
-
 ];
 
 function ArrowIcon() {
@@ -634,6 +646,8 @@ function ArrowIcon() {
 }
 
 export default function Projects() {
+    useRouteScrollMemory();
+
     return (
         <div className="bg-[#0a0a0a] min-h-screen w-full">
             <Navigation />
