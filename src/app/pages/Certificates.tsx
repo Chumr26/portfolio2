@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import svgPaths from '../../imports/svg-nyhfy7xnj9';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
@@ -45,13 +46,14 @@ function CertificateCard({
     image: string;
     url: string;
 }) {
+    const { t } = useTranslation();
     return (
         <div className="bg-[#1a1a1a] rounded-[16px] overflow-hidden hover:bg-[#222] transition-colors border border-[#484848]/30">
             {/* Certificate Image */}
             <div className="relative w-full h-[340px] bg-[#0a0a0a] overflow-hidden">
                 <ImageWithFallback
                     src={image}
-                    alt={`${title} certificate`}
+                    alt={`${title} ${t("certificates.altSuffix", { defaultValue: "certificate" })}`}
                     className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
@@ -111,7 +113,7 @@ function CertificateCard({
                     >
                         <div className="flex gap-[4px] items-center">
                             <p className="font-bold leading-[1.5] text-[#d3e97a] text-[14px] uppercase">
-                                View Certificate
+                                {t("certificates.viewCertificate", { defaultValue: "View Certificate" })}
                             </p>
                             <ArrowIcon />
                         </div>
@@ -138,6 +140,7 @@ function StatCard({ number, label }: { number: string; label: string }) {
 
 export default function Certificates() {
     useRouteScrollMemory();
+    const { t } = useTranslation();
 
     const certificates = [
         {
@@ -287,23 +290,18 @@ export default function Certificates() {
               Certificates
             </h1> */}
                         <h2 className="leading-none text-[56px] md:text-[76px] text-white">
-                            Certificates
+                            {t("certificates.hero.title", { defaultValue: "Certificates" })}
                         </h2>
                         <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                            Continuous learning and professional development
+                            {t("certificates.hero.subtitle", { defaultValue: "Continuous learning and professional development" })}
                         </p>
                     </div>
                     <div className="flex flex-col gap-[16px]">
                         <h2 className="font-medium leading-[1.4] text-[24px] md:text-[32px] text-white">
-                            Committed to continuous growth and staying current
-                            with industry standards.
+                            {t("certificates.hero.heading", { defaultValue: "Committed to continuous growth and staying current with industry standards." })}
                         </h2>
                         <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                            I believe in lifelong learning and regularly pursue
-                            certifications to enhance my skills and knowledge.
-                            Each certification represents dedication to
-                            mastering new technologies and best practices in
-                            sofware development.
+                            {t("certificates.hero.description", { defaultValue: "I believe in lifelong learning and regularly pursue certifications to enhance my skills and knowledge. Each certification represents dedication to mastering new technologies and best practices in sofware development." })}
                         </p>
                     </div>
                 </div>
@@ -314,16 +312,16 @@ export default function Certificates() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <StatCard
                         number={`${certificationsEarned}+`}
-                        label="Certifications Earned"
+                        label={t("certificates.stats.earned", { defaultValue: "Certifications Earned" })}
                     />
                     <StatCard
                         number={`${totalLearningHours}+`}
-                        label="Learning Hours"
+                        label={t("certificates.stats.hours", { defaultValue: "Learning Hours" })}
                     />
-                    <StatCard number={`${skillsMastered}+`} label="Skills Mastered" />
+                    <StatCard number={`${skillsMastered}+`} label={t("certificates.stats.skills", { defaultValue: "Skills Mastered" })} />
                     <StatCard
-                        number={mostRecentYear > 0 ? `${mostRecentYear}` : 'N/A'}
-                        label="Most Recent"
+                        number={mostRecentYear > 0 ? `${mostRecentYear}` : t("certificates.stats.na", { defaultValue: "N/A" })}
+                        label={t("certificates.stats.recent", { defaultValue: "Most Recent" })}
                     />
                 </div>
             </section>
@@ -335,17 +333,25 @@ export default function Certificates() {
             <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
                 <div className="flex flex-col gap-[8px] mb-[48px]">
                     <h2 className="leading-none text-[56px] md:text-[76px] text-white">
-                        All Certificates
+                        {t("certificates.all.title", { defaultValue: "All Certificates" })}
                     </h2>
                     <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                        A collection of professional certifications and
-                        completed courses.
+                        {t("certificates.all.subtitle", { defaultValue: "A collection of professional certifications and completed courses." })}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {certificates.map((cert, index) => (
-                        <CertificateCard key={index} {...cert} />
+                        <CertificateCard 
+                            key={index} 
+                            {...cert} 
+                            title={t(`certificates.list.${index}.title`, { defaultValue: cert.title })}
+                            issuer={t(`certificates.list.${index}.issuer`, { defaultValue: cert.issuer })}
+                            description={t(`certificates.list.${index}.description`, { defaultValue: cert.description })}
+                            skills={cert.skills.map((skill, skillIndex) =>
+                                t(`certificates.list.${index}.skills.${skillIndex}`, { defaultValue: skill }),
+                            )}
+                        />
                     ))}
                 </div>
             </section>
@@ -357,52 +363,35 @@ export default function Certificates() {
             <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[80px]">
                     <h2 className="leading-none text-[56px] md:text-[76px] text-white">
-                        Currently Learning
+                        {t("certificates.learning.title", { defaultValue: "Currently Learning" })}
                     </h2>
                     <div className="flex flex-col gap-[32px]">
-                        <div className="flex flex-col gap-[16px]">
-                            <div className="flex items-start justify-between gap-4">
-                                <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
-                                    International English Language Testing System (IELTS)
-                                </h3>
-                                <span className="bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap">
-                                    In Progress
-                                </span>
+                        {[
+                            {
+                                title: 'International English Language Testing System (IELTS)',
+                                status: 'In Progress',
+                                description: 'Preparing for the IELTS exam to achieve a high score in all four language skills: Listening, Reading, Writing, and Speaking.'
+                            },
+                            {
+                                title: 'CompTIA Security+',
+                                status: 'Planned',
+                                description: 'Planning to pursue the CompTIA Security+ certification to validate foundational cybersecurity skills and knowledge.'
+                            }
+                        ].map((item, index) => (
+                            <div key={index} className="flex flex-col gap-[16px]">
+                                <div className="flex items-start justify-between gap-4">
+                                    <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
+                                        {t(`certificates.learning.list.${index}.title`, { defaultValue: item.title })}
+                                    </h3>
+                                    <span className={item.status === 'In Progress' ? "bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap" : "bg-[#484848] text-white px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap"}>
+                                        {t(`certificates.learning.status.${item.status.replace(' ', '')}`, { defaultValue: item.status })}
+                                    </span>
+                                </div>
+                                <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
+                                    {t(`certificates.learning.list.${index}.description`, { defaultValue: item.description })}
+                                </p>
                             </div>
-                            <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                Preparing for the IELTS exam to achieve a high score in all four language skills: Listening, Reading, Writing, and Speaking.
-                            </p>
-                        </div>
-
-                        {/* <div className="flex flex-col gap-[16px]">
-                            <div className="flex items-start justify-between gap-4">
-                                <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
-                                    Web Performance Optimization
-                                </h3>
-                                <span className="bg-[#d3e97a] text-[#0a0a0a] px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap">
-                                    In Progress
-                                </span>
-                            </div>
-                            <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                Learning advanced techniques for optimizing web
-                                application performance, including code
-                                splitting, lazy loading, and caching strategies.
-                            </p>
-                        </div> */}
-
-                        <div className="flex flex-col gap-[16px]">
-                            <div className="flex items-start justify-between gap-4">
-                                <h3 className="font-medium leading-[1.3] text-[20px] md:text-[24px] text-white">
-                                    CompTIA Security+
-                                </h3>
-                                <span className="bg-[#484848] text-white px-3 py-1 rounded-full font-bold text-[12px] uppercase whitespace-nowrap">
-                                    Planned
-                                </span>
-                            </div>
-                            <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                Planning to pursue the CompTIA Security+ certification to validate foundational cybersecurity skills and knowledge.
-                            </p>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>

@@ -1,0 +1,278 @@
+{
+  "nav": {
+    "siteName": "nguyễn anh khoa",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "certificates": "Chứng chỉ",
+    "contact": "Liên hệ"
+  },
+  "about": {
+    "hero": {
+      "greeting": "Xin chào, mình là",
+      "name": "Khoa.",
+      "description": "Là sinh viên công nghệ thông tin có niềm đam mê phát triển các phần mềm mạnh mẽ và hiệu suất cao.",
+      "resume": "Hồ Sơ Của Tôi"
+    },
+    "me": {
+      "title": "Giới thiệu",
+      "subtitle": "Mình đam mê khoa học máy tính và mong muốn trở thành một kỹ sư phần mềm.",
+      "description": "Hiện tại mình đang tập trung vào back-end, nhưng luôn sẵn lòng học hỏi công nghệ mới và khám phá các lĩnh vực khác nhau trong phát triển phần mềm. Mình học hỏi nhanh và có tinh thần làm việc nhóm tốt, rất mong muốn đóng góp kỹ năng và kiến thức của mình cho một môi trường năng động và đổi mới."
+    },
+    "skills": {
+      "technicalTitle": "Kỹ Năng Chuyên Môn",
+      "technicalDesc": "Mình luôn tìm cách bổ sung thêm kỹ năng mới đồng thời củng cố những kỹ năng đã có.",
+      "tags": {
+        "web": "Phát triển Web",
+        "mobile": "Phát triển Di động",
+        "system": "Phân tích và Thiết kế Hệ thống",
+        "db": "Thiết kế Cơ sở Dữ liệu",
+        "devops": "DevOps",
+        "cybersec": "An ninh Mạng"
+      },
+      "softTitle": "Kỹ Năng Mềm",
+      "softDesc": "Bên cạnh chuyên môn kỹ thuật, mình còn có các kỹ năng xã hội và giao tiếp tốt để hợp tác hiệu quả và bảo đảm dự án thành công.",
+      "softTags": {
+        "communication": "Giao tiếp",
+        "team": "Làm việc Nhóm",
+        "problem": "Giải quyết Vấn đề",
+        "time": "Quản lý Thời gian",
+        "adaptability": "Thích nghi",
+        "logical": "Tư duy Logic",
+        "detail": "Chú ý tới Chi tiết",
+        "motivation": "Tự Tạo Động Lực"
+      }
+    },
+    "techStack": {
+      "title": "Công Nghệ",
+      "desc": "Mình làm việc với các công nghệ và công cụ hiện đại để xây dựng các ứng dụng mạnh mẽ, dễ mở rộng và hiệu suất cao.",
+      "programming": "Ngôn ngữ Lập trình",
+      "frontend": "Phát triển Front-end",
+      "backend": "Phát triển Back-end",
+      "mobile": "Phát triển Di động",
+      "databases": "Cơ sở Dữ liệu",
+      "devops": "DevOps",
+      "cybersecurity": "An ninh Mạng"
+    }
+  },
+  "projects": {
+    "header": {
+      "title": "Dự án nổi bật",
+      "subtitle": "Dưới đây là một số dự án được chọn lọc thể hiện niềm đam mê của mình đối với phát triển phần mềm."
+    },
+    "labels": {
+      "projectInfo": "Thông tin dự án",
+      "timestamp": "Thời gian",
+      "stack": "Công nghệ",
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "database": "Cơ sở Dữ liệu",
+      "designpatterns": "Mẫu thiết kế"
+    },
+    "actions": {
+      "View project": "Xem dự án",
+      "See on Github": "Xem trên Github"
+    },
+    "list": {
+      "mern_bookstore": {
+        "title": "Trang web nhà sách (MERN)",
+        "description": "Một nhà sách thương mại điện tử đa ngôn ngữ toàn diện. Các tính năng bao gồm duyệt sách mượt mà, hệ thống giỏ hàng động, thanh toán tích hợp an toàn và tìm kiếm ngữ nghĩa để khám phá sản phẩm nâng cao. Nền tảng cũng bao gồm xác thực và phân quyền theo vai trò, thông báo email tự động và một trang web quản trị chuyên dụng để quản lý hoàn toàn cửa hàng."
+      },
+      "php_bookstore": {
+        "title": "Trang web nhà sách (PHP)",
+        "description": "Một nhà sách thương mại điện tử đầy đủ tính năng được xây dựng bằng PHP, cung cấp khả năng duyệt sách mượt mà, hệ thống giỏ hàng thiết thực, thanh toán tích hợp an toàn và thông báo qua email tự động. Nền tảng này bao gồm xác thực và phân quyền, cộng với một trang web quản trị chuyên dụng để quản lý cửa hàng hiệu quả."
+      },
+      "noter": {
+        "title": "Ứng dụng ghi chú di động",
+        "description": "Một ứng dụng di động ghi chú đa nền tảng với đầy đủ các chức năng CRUD, tìm kiếm ghi chú nhanh chóng và phân loại dựa trên thẻ để tổ chức tốt hơn. Ứng dụng mang lại giao diện người dùng trơn tru, thân thiện và tập trung vào khả năng tiếp cận, đồng thời kết hợp một màn hình cài đặt riêng biệt, hỗ trợ chủ đề tối/sáng với phản hồi xúc giác cho một trải nghiệm di động đáp ứng tốt hơn."
+      },
+      "college": {
+        "title": "Trang chủ trường học",
+        "description": "Một trang chủ tập trung vào trường học được xây dựng để rèn luyện các kỹ năng phát triển front-end. Dự án nhấn mạnh vào thiết kế hấp dẫn, tuân thủ tiêu chuẩn, giao diện người dùng UI/UX thân thiện và có thể tiếp cận, bố cục hoàn toàn phản hồi trên nhiều thiết bị và hỗ trợ chủ đề sáng/tối mượt mà."
+      },
+      "furniture": {
+        "title": "Trang web cửa hàng nội thất",
+        "description": "Một cửa hàng nội thất thương mại điện tử hiện đại có cấu trúc tập trung vào front-end, trong khi các dịch vụ backend được bàn giao cho Firebase. Web cung cấp trải nghiệm duyệt sản phẩm trực quan, khám phá dựa trên danh mục, tìm kiếm và lọc nâng cao, quy trình đặt hàng và giỏ hàng hợp lý, cùng với một trang quản trị gọn nhẹ."
+      },
+      "blog": {
+        "title": "Trang web blog đơn giản",
+        "description": "Một ứng dụng web blog đơn giản được xây dựng dưới dạng dự án học tập để củng cố kỹ năng quản lý trạng thái với Redux và Redux Saga, đồng thời áp dụng Ant Design để tạo ra một giao diện gọn gàng, nhất quán và thân thiện với người dùng."
+      },
+      "blogs-backend": {
+        "title": "Blogs App (Backend API)",
+        "description": "Một hệ thống backend mạnh mẽ và dễ mở rộng cho nền tảng viết blog. Các tính năng cốt lõi bao gồm xác thực an toàn bằng JWT, hệ thống phân quyền mạnh mẽ qua RBAC, và quản lý blog, danh mục hiệu quả. Tài liệu API chi tiết được tạo tự động bằng Swagger để tích hợp liền mạch."
+      },
+      "netflix": {
+        "title": "Trang web clone Netflix",
+        "description": "Nền tảng phát trực tuyến video được thiết kế mô phỏng chặt chẽ UI/UX của Netflix, mang lại trải nghiệm xem phim liền mạch. Ứng dụng bảo mật mạnh mẽ với xác thực qua email và OAuth (Google, GitHub). Xây dựng bằng Next.js, tối ưu hóa hiệu suất thông qua kết hợp render phía client và server."
+      },
+      "spotify": {
+        "title": "Trang web clone Spotify",
+        "description": "Nền tảng phát nhạc trực tuyến đầy đủ tính năng. Tính năng nổi bật gồm: danh sách yêu thích, tải nhạc linh hoạt (file hoặc link YouTube), xác thực qua email và OAuth (Google, Facebook, GitHub). Xây dựng bằng Next.js, kết hợp render phía client và server cho trải nghiệm và hiệu suất tối ưu."
+      },
+      "y2m": {
+        "title": "Công cụ web Y2M",
+        "description": "Công cụ web chuyển đổi độ YouTube sang MP3, dựa vào API YouTube để trích xuất dữ liệu video và API bên thứ ba để xử lý âm thanh. Giao diện sạch sẽ, thân thiện, xử lý lỗi mượt mà và thiết kế responsive cho mọi thiết bị."
+      },
+      "music_player": {
+        "title": "Trình phát nhạc",
+        "description": "Trình phát nhạc trên web để củng cố nền tảng web development. Hoàn toàn viết bằng HTML, CSS, và Vanilla JavaScript, với giao diện tinh tế, tập trung vào các thao tác mượt mà và trải nghiệm nghe nhạc liên tục."
+      },
+      "todos_list": {
+        "title": "Danh sách công việc",
+        "description": "Ứng dụng to-do list đơn giản mà hiệu quả, tập trung vào tính năng CRUD quản lý tác vụ. Viết hoàn toàn bằng HTML, CSS và Vanilla JavaScript phục vụ học kiến thức căn bản, với giao diện tương tác mượt mà."
+      }
+    }
+  },
+  "certificates": {
+    "header": {
+      "title": "Chứng chỉ",
+      "desc1": "Minh chứng cho hành trình học hỏi không ngừng của tôi. Hoàn thành các chương trình nghiêm ngặt từ các tổ chức hàng đầu như Microsoft, CompTIA và Udemy...",
+      "desc2": "Những chứng chỉ này đại diện cho khả năng thích ứng với công nghệ mới, giải quyết thách thức phức tạp, và mang lại giải pháp chất lượng cao."
+    },
+    "currentlyLearning": "Đang học",
+    "allCertificates": "Tất cả Chứng chỉ",
+    "list": {
+      "0": {
+        "title": "Hiểu về Internet",
+        "issuer": "Đại học Keio và Chương trình APIE",
+        "description": "Khóa học nhập môn về kiến trúc và hoạt động của Internet, khám phá định tuyến, gói tin và các khái niệm mạng cơ bản.",
+        "skills": [
+          "Kiến trúc Internet",
+          "Kiến thức mạng cơ bản",
+          "Định tuyến",
+          "TCP/IP"
+        ]
+      },
+      "1": {
+        "title": "An ninh mạng 101",
+        "issuer": "Try Hack Me",
+        "description": "Giới thiệu về các khái niệm cốt lõi của an ninh mạng, bao gồm kiến thức cơ bản về bảo mật tấn công và phòng thủ, bảo mật ứng dụng web và các lỗ hổng mạng.",
+        "skills": [
+          "Bảo mật tấn công",
+          "Bảo mật phòng thủ",
+          "Đánh giá lỗ hổng",
+          "An toàn thông tin"
+        ]
+      },
+      "2": {
+        "title": "Tiền bảo mật (Pre Security)",
+        "issuer": "Try Hack Me",
+        "description": "Một lộ trình học tập nền tảng bao gồm các kiến thức tiên quyết cho an ninh mạng, bao gồm mạng, nền tảng cơ bản về web và hệ điều hành Linux.",
+        "skills": [
+          "Nền tảng mạng",
+          "Ứng dụng web",
+          "Linux cơ bản",
+          "Windows cơ bản"
+        ]
+      },
+      "3": {
+        "title": "C# nền tảng",
+        "issuer": "Microsoft & FreeCodeCamp",
+        "description": "Hướng dẫn toàn diện về các khái niệm lập trình C# nền tảng, bao gồm cú pháp cốt lõi, mảng, phân tích logic và gỡ lỗi các ứng dụng console.",
+        "skills": [
+          "Cú pháp C#",
+          "Lập trình hướng đối tượng",
+          "Gỡ lỗi",
+          "Ứng dụng console .NET"
+        ]
+      },
+      "4": {
+        "title": "JavaScript nâng cao",
+        "issuer": "F8",
+        "description": "Đi sâu vào cơ chế cốt lõi của JavaScript, bao gồm các chủ đề phức tạp như closures, hoisting, từ khóa \"this\" và strict mode.",
+        "skills": [
+          "Closures",
+          "IIFE",
+          "Hoisting",
+          "Strict Mode"
+        ]
+      },
+      "5": {
+        "title": "JavaScript cơ bản",
+        "issuer": "F8",
+        "description": "Một khóa học thân thiện với người mới bắt đầu về lập trình JavaScript nền tảng, tập trung vào biến, hàm, thao tác DOM và các thuật toán cơ bản.",
+        "skills": [
+          "Cú pháp JS",
+          "Thao tác DOM",
+          "Xử lý sự kiện",
+          "Thuật toán cơ bản"
+        ]
+      },
+      "6": {
+        "title": "Giới thiệu lập trình với Python",
+        "issuer": "CS50 của Đại học Harvard",
+        "description": "Khóa học giới thiệu về lập trình bằng Python, tập trung vào hàm, biến, câu lệnh điều kiện, vòng lặp, ngoại lệ và biểu thức chính quy (regular expressions).",
+        "skills": [
+          "Python",
+          "Biểu thức chính quy",
+          "Lập trình hướng đối tượng",
+          "Kiểm thử/Gỡ lỗi"
+        ]
+      },
+      "7": {
+        "title": "Giới thiệu khoa học máy tính",
+        "issuer": "CS50 của Đại học Harvard",
+        "description": "Một phần giới thiệu toàn diện về ngành khoa học máy tính và nghệ thuật lập trình, dạy tư duy thuật toán và giải quyết vấn đề.",
+        "skills": [
+          "C",
+          "Python",
+          "SQL",
+          "Cấu trúc dữ liệu"
+        ]
+      }
+    },
+    "hero": {
+      "title": "Chứng chỉ",
+      "subtitle": "Học tập liên tục và phát triển chuyên môn",
+      "heading": "Cam kết không ngừng phát triển và cập nhật theo các tiêu chuẩn mới trong ngành.",
+      "description": "Tôi tin vào việc học tập suốt đời và thường xuyên theo đuổi các chứng chỉ để nâng cao kỹ năng và kiến thức. Mỗi chứng chỉ thể hiện sự cam kết làm chủ công nghệ mới và các thực tiễn tốt nhất trong phát triển phần mềm."
+    },
+    "stats": {
+      "earned": "Chứng chỉ đã nhận",
+      "hours": "Giờ học",
+      "skills": "Kỹ năng thành thạo",
+      "na": "N/A",
+      "recent": "Gần đây nhất"
+    },
+    "all": {
+      "title": "Tất cả chứng chỉ",
+      "subtitle": "Bộ sưu tập các chứng chỉ chuyên môn và các khóa học đã hoàn thành."
+    },
+    "viewCertificate": "Xem chứng chỉ",
+    "altSuffix": "chứng chỉ",
+    "learning": {
+      "title": "Đang học",
+      "status": {
+        "InProgress": "Đang tiến hành",
+        "Planned": "Đã lên kế hoạch"
+      },
+      "list": {
+        "0": {
+          "title": "IELTS (Hệ thống Kiểm tra Anh ngữ Quốc tế)",
+          "description": "Đang chuẩn bị cho kỳ thi IELTS để đạt điểm cao ở cả bốn kỹ năng ngôn ngữ: Nghe, Đọc, Viết và Nói."
+        },
+        "1": {
+          "title": "CompTIA Security+",
+          "description": "Dự định theo đuổi chứng chỉ CompTIA Security+ để xác nhận kiến thức và kỹ năng nền tảng về an ninh mạng."
+        }
+      }
+    }
+  },
+  "footer": {
+    "title": "Kết nối với tôi",
+    "sayHelloAt": "Liên hệ qua",
+    "myPhone": "Số điện thoại",
+    "forMoreInfo": "Để biết thêm thông tin, hãy xem",
+    "resume": "hồ sơ của tôi",
+    "form": {
+      "name": "Tên",
+      "email": "Email",
+      "subject": "Chủ đề",
+      "message": "Tin nhắn",
+      "submit": "Gửi",
+      "sending": "Đang gửi...",
+      "successMessage": "Gửi tin nhắn thành công.",
+      "errorMessage": "Gửi tin nhắn thất bại. Vui lòng thử lại sau."
+    }
+  }
+}

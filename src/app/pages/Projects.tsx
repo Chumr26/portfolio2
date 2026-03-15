@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from 'react-router';
 import {
     type ReactNode,
@@ -365,7 +366,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
         ],
         actions: [
             {
-                text: 'Live Demo',
+                text: 'View project',
                 href: 'https://bookstore.nguyenanhkhoa.me',
                 icon: 'arrow',
             },
@@ -396,7 +397,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
         ],
         actions: [
             {
-                text: 'Live Demo',
+                text: 'View project',
                 href: 'https://php-bookstore.nguyenanhkhoa.me',
                 icon: 'arrow',
             },
@@ -646,20 +647,20 @@ function ArrowIcon() {
 }
 
 export default function Projects() {
+    const { t } = useTranslation();
     useRouteScrollMemory();
 
     return (
         <div className="bg-[#0a0a0a] min-h-screen w-full">
             <Navigation />
-            {/* Featured Projects Section */}
+            {/* {t("projects.header.title")} Section */}
             <section className="container mx-auto px-4 md:px-[60px] pt-[100px] md:pt-[160px] pb-[80px]">
                 <div className="flex flex-col gap-[8px] mb-[80px]">
                     <h2 className="leading-none text-[56px] md:text-[76px] text-white">
-                        Featured Projects
+                        {t("projects.header.title")}
                     </h2>
                     <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                        Here are some of the selected projects that showcase my
-                        passion for software development.
+                        {t("projects.header.subtitle")}
                     </p>
                 </div>
 
@@ -677,21 +678,21 @@ export default function Projects() {
                                 <div className="flex flex-col gap-[32px]">
                                     <div className="flex flex-col gap-[16px]">
                                         <h3 className="font-medium leading-[1.4] text-[28px] md:text-[32px] text-white">
-                                            {project.title}
+                                            {t(`projects.list.${project.id}.title`, { defaultValue: project.title })}
                                         </h3>
                                         <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                            {project.description}
+                                            {t(`projects.list.${project.id}.description`, { defaultValue: project.description })}
                                         </p>
                                     </div>
                                     <div className="flex flex-col gap-[16px]">
                                         <p className="font-semibold leading-[1.5] text-[16px] text-white uppercase">
-                                            Project Info
+                                            {t("projects.labels.projectInfo")}
                                         </p>
                                         <div className="border-b border-[#484848]">
                                             {project.info.map((infoItem) => (
                                                 <ProjectInfo
                                                     key={`${project.id}-${infoItem.label}`}
-                                                    label={infoItem.label}
+                                                    label={t(`projects.labels.${infoItem.label.trim().toLowerCase().replace(/[-\s\xA0]/g, "")}`, { defaultValue: infoItem.label })}
                                                     value={infoItem.value}
                                                 />
                                             ))}
@@ -710,7 +711,7 @@ export default function Projects() {
                                                     <ArrowIcon />
                                                 ) : undefined
                                             }
-                                            text={action.text}
+                                            text={t(`projects.actions.${action.text}`, { defaultValue: action.text })}
                                         />
                                     ))}
                                 </div>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-3c6obhzfe4";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
@@ -93,6 +94,7 @@ function TechStackLogo({ name, image }: { name: string; image: string }) {
 }
 
 export default function About() {
+    const { t } = useTranslation();
     useRouteScrollMemory();
 
     return (
@@ -105,10 +107,10 @@ export default function About() {
                     <div className="flex flex-col gap-[40px] order-2 lg:order-1">
                         <div className="flex flex-col gap-[8px]">
                             <h1 className="leading-[0.9] text-[60px] md:text-[80px] lg:text-[101px] text-white">
-                                Hi, i am<br />Khoa.
+                                {t("about.hero.greeting")}<br />{t("about.hero.name")}
                             </h1>
                             <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                An information technology college student passionate about developing robust and highly performant software.
+                                {t("about.hero.description")}
                             </p>
                         </div>
 
@@ -118,7 +120,7 @@ export default function About() {
                                 target="_blank"
                                 className="bg-[#d3e97a] h-[54px] rounded-full flex items-center gap-[12px] pl-[24px] pr-[6px] py-[20px] hover:bg-[#c5db6e] transition-colors"
                             >
-                                <p className="font-bold leading-none text-[#0a0a0a] text-[16px] uppercase">My Resume</p>
+                                <p className="font-bold leading-none text-[#0a0a0a] text-[16px] uppercase">{t("about.hero.resume")}</p>
                                 <div className="size-[42px] bg-[#0a0a0a] rounded-full flex items-center justify-center">
                                     <div className="size-[10px] bg-[#0a0a0a] rounded-full" />
                                 </div>
@@ -182,14 +184,14 @@ export default function About() {
             {/* About Me */}
             <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[24px]">
-                    <h2 className="leading-none text-[56px] md:text-[76px] text-white">About me</h2>
+                    <h2 className="leading-none text-[56px] md:text-[76px] text-white">{t("about.me.title")}</h2>
                     <div className="flex flex-col gap-[48px]">
                         <div className="flex flex-col gap-[32px]">
                             <h2 className="font-medium leading-[1.5] text-[24px] md:text-[32px] text-white">
-                                I am passionate about computer science and want to become a software engineer.
+                                {t("about.me.subtitle")}
                             </h2>
                             <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                Currently i am focusing on backend development, but i am always open to learning new technologies and exploring different areas of software development. I am a quick learner and a team player, and I am excited to contribute my skills and knowledge to a dynamic and innovative company.
+                                {t("about.me.description")}
                             </p>
                         </div>
 
@@ -220,18 +222,18 @@ export default function About() {
             {/* My Capabilities Section */}
             <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[24px]">
-                    <h2 className="leading-none text-[56px] md:text-[76px] text-white">Technical Skills</h2>
+                    <h2 className="leading-none text-[56px] md:text-[76px] text-white">{t("about.skills.technicalTitle")}</h2>
                     <div className="flex flex-col gap-[32px]">
                         <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                            I am always looking to add more skills but also strengthen the ones I already have.
+                            {t("about.skills.technicalDesc")}
                         </p>
                         <div className="flex flex-wrap gap-[16px]">
-                            <SkillTag text="Web Development" />
-                            <SkillTag text="Mobile Development" />
-                            <SkillTag text="System Analysis and Design" />
-                            <SkillTag text="Database Design" />
-                            <SkillTag text="DevOps" />
-                            <SkillTag text="Cybersecurity" />
+                            <SkillTag text={t("about.skills.tags.web")} />
+                            <SkillTag text={t("about.skills.tags.mobile")} />
+                            <SkillTag text={t("about.skills.tags.system")} />
+                            <SkillTag text={t("about.skills.tags.db")} />
+                            <SkillTag text={t("about.skills.tags.devops")} />
+                            <SkillTag text={t("about.skills.tags.cybersec")} />
                         </div>
                     </div>
                 </div>
@@ -243,20 +245,20 @@ export default function About() {
             {/* My Soft Skills Section */}
             <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[24px]">
-                    <h2 className="leading-none text-[56px] md:text-[76px] text-white">Soft Skills</h2>
+                    <h2 className="leading-none text-[56px] md:text-[76px] text-white">{t("about.skills.softTitle")}</h2>
                     <div className="flex flex-col gap-[32px]">
                         <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                            Beyond technical expertise, I bring strong interpersonal and professional skills that enable effective collaboration and project success.
+                            {t("about.skills.softDesc")}
                         </p>
                         <div className="flex flex-wrap gap-[16px]">
-                            <SkillTag text="Communication" />
-                            <SkillTag text="Team Collaboration" />
-                            <SkillTag text="Problem Solving" />
-                            <SkillTag text="Time Management" />
-                            <SkillTag text="Adaptability" />
-                            <SkillTag text="Logical Thinking" />
-                            <SkillTag text="Attention to Detail" />
-                            <SkillTag text="Self-Motivation" />
+                            <SkillTag text={t("about.skills.softTags.communication")} />
+                            <SkillTag text={t("about.skills.softTags.team")} />
+                            <SkillTag text={t("about.skills.softTags.problem")} />
+                            <SkillTag text={t("about.skills.softTags.time")} />
+                            <SkillTag text={t("about.skills.softTags.adaptability")} />
+                            <SkillTag text={t("about.skills.softTags.logical")} />
+                            <SkillTag text={t("about.skills.softTags.detail")} />
+                            <SkillTag text={t("about.skills.softTags.motivation")} />
                         </div>
                     </div>
                 </div>
@@ -269,15 +271,14 @@ export default function About() {
             <section className="container mx-auto px-4 md:px-[60px] py-[80px]">
                 <div className="flex flex-col gap-[64px]">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[24px]">
-                        <h2 className="leading-none text-[56px] md:text-[76px] text-white">Tech Stack</h2>
+                        <h2 className="leading-none text-[56px] md:text-[76px] text-white">{t("about.techStack.title")}</h2>
                         <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                            I work with modern technologies and tools to build robust, scalable, and performant applications.
+                            {t("about.techStack.desc")}
                         </p>
                     </div>
                     {/* Programming Languages */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            Programing Languages
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.programming")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
@@ -316,8 +317,7 @@ export default function About() {
                     </div>
                     {/* Frontend Development */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            Frontend Development
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.frontend")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
@@ -357,8 +357,7 @@ export default function About() {
 
                     {/* Backend Development */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            Backend Development
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.backend")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
@@ -398,8 +397,7 @@ export default function About() {
 
                     {/* Mobile Development */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            Mobile Development
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.mobile")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
@@ -419,8 +417,7 @@ export default function About() {
 
                     {/* Databases */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            Databases
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.databases")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
@@ -452,8 +449,7 @@ export default function About() {
 
                     {/* DevOps */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            DevOps
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.devops")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
@@ -477,8 +473,7 @@ export default function About() {
 
                     {/* Cybersecurity */}
                     <div className="flex flex-col gap-[24px]">
-                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">
-                            Cybersecurity
+                        <h3 className="font-semibold leading-[1.3] text-[20px] md:text-[24px] text-[#d3e97a] uppercase">{t("about.techStack.cybersecurity")}
                         </h3>
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo

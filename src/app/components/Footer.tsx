@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import svgPaths from "../../imports/svg-nyhfy7xnj9";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
@@ -124,6 +125,7 @@ function FormTextarea({
 }
 
 export function Footer() {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -176,12 +178,12 @@ export function Footer() {
                     <div className="flex flex-col gap-[40px]">
                         <div className="flex flex-col gap-[16px]">
                             <h2 className="leading-none text-[56px] md:text-[76px] text-white">
-                                Let's connect
+                                {t("footer.title")}
                             </h2>
                             <div className="flex flex-col gap-[8px]">
                                 <div className="flex gap-[10px] items-center flex-wrap">
                                     <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                        Say hello at
+                                        {t("footer.sayHelloAt")}
                                     </p>
                                     <a
                                         href="mailto:robertgarcia@gmail.com"
@@ -192,7 +194,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex gap-[10px] items-center flex-wrap">
                                     <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                        My phone
+                                        {t("footer.myPhone")}
                                     </p>
                                     <a
                                         href="tel:+84359090159"
@@ -204,14 +206,14 @@ export function Footer() {
 
                                 <div className="flex gap-[10px] items-center flex-wrap">
                                     <p className="font-normal leading-[1.5] text-[#c7c7c7] text-[16px] md:text-[18px]">
-                                        For more info, here's my
+                                        {t("footer.forMoreInfo")}
                                     </p>
                                     <a
                                         href="/resume.pdf"
                                         target="_blank"
                                         className="font-normal leading-[1.5] text-[16px] md:text-[18px] text-white border-b border-[#d3e97a] hover:text-[#d3e97a] transition-colors"
                                     >
-                                        resume
+                                        {t("footer.resume")}
                                     </a>
                                 </div>
                             </div>
@@ -240,14 +242,14 @@ export function Footer() {
                     <form onSubmit={handleSubmit} className="flex flex-col gap-[40px]">
                         <div className="flex flex-col gap-[24px]">
                             <FormInput
-                                label="Name"
+                                label={t("footer.form.name")}
                                 id="name"
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
                             />
                             <FormInput
-                                label="Email"
+                                label={t("footer.form.email")}
                                 type="email"
                                 id="email"
                                 name="email"
@@ -255,14 +257,14 @@ export function Footer() {
                                 onChange={handleInputChange}
                             />
                             <FormInput
-                                label="Subject"
+                                label={t("footer.form.subject")}
                                 id="subject"
                                 name="subject"
                                 value={formData.subject}
                                 onChange={handleInputChange}
                             />
                             <FormTextarea
-                                label="Message"
+                                label={t("footer.form.message")}
                                 id="message"
                                 name="message"
                                 value={formData.message}
@@ -276,16 +278,16 @@ export function Footer() {
                             className="bg-[#d3e97a] h-[54px] rounded-full flex items-center justify-center px-[40px] py-[20px] hover:bg-[#c5db6e] transition-colors disabled:opacity-70"
                         >
                             <p className="font-bold leading-none text-[#0a0a0a] text-[16px] uppercase">
-                                {submitStatus === "submitting" ? "Sending..." : "Submit"}
+                                {submitStatus === "submitting" ? t("footer.form.sending") : t("footer.form.submit")}
                             </p>
                         </button>
 
                         {submitStatus === "success" && (
-                            <p className="font-normal text-[14px] text-[#d3e97a]">Message sent successfully.</p>
+                            <p className="font-normal text-[14px] text-[#d3e97a]">{t("footer.form.successMessage")}</p>
                         )}
                         {submitStatus === "error" && (
                             <p className="font-normal text-[14px] text-red-400">
-                                Failed to send message. Please try again.
+                                {t("footer.form.errorMessage")}
                             </p>
                         )}
                     </form>
