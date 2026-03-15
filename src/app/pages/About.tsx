@@ -3,8 +3,8 @@ import svgPaths from "../../imports/svg-3c6obhzfe4";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { T } from "node_modules/react-router/dist/development/index-react-server-client-MKTlCGL3.mjs";
 import { useRouteScrollMemory } from "../hooks/useRouteScrollMemory";
+import { withBase } from "../../lib/asset";
 
 function SocialButton({ children, href }: { children: React.ReactNode; href?: string }) {
     return (
@@ -93,6 +93,9 @@ function TechStackLogo({ name, image }: { name: string; image: string }) {
     );
 }
 
+const portraitSrc = withBase("potrait.png");
+const resumeHref = withBase("resume.pdf");
+
 export default function About() {
     const { t } = useTranslation();
     useRouteScrollMemory();
@@ -116,8 +119,9 @@ export default function About() {
 
                         <div className="flex gap-[16px] items-center flex-wrap">
                             <a
-                                href="/resume.pdf"
+                                href={resumeHref}
                                 target="_blank"
+                                rel="noreferrer"
                                 className="bg-[#d3e97a] h-[54px] rounded-full flex items-center gap-[12px] pl-[24px] pr-[6px] py-[20px] hover:bg-[#c5db6e] transition-colors"
                             >
                                 <p className="font-bold leading-none text-[#0a0a0a] text-[16px] uppercase">{t("about.hero.resume")}</p>
@@ -142,7 +146,7 @@ export default function About() {
                                 decoding="async"
                                 fetchPriority="high"
                                 loading="eager"
-                                src="/potrait.png"
+                                src={portraitSrc}
                             />
                         </div>
                     </div>
@@ -286,35 +290,35 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="JavaScript"
-                                image="/toolkit/javascript.png"
+                                image={withBase("/toolkit/javascript.png")}
                             />
                             <TechStackLogo
                                 name="TypeScript"
-                                image="/toolkit/typescript.png"
+                                image={withBase("/toolkit/typescript.png")}
                             />
                             <TechStackLogo
                                 name="PHP"
-                                image="/toolkit/php.png"
+                                image={withBase("/toolkit/php.png")}
                             />
                             <TechStackLogo
                                 name="C#"
-                                image="/toolkit/c_sharp.png"
+                                image={withBase("/toolkit/c_sharp.png")}
                             />
                             <TechStackLogo
                                 name="Python"
-                                image="/toolkit/python.webp"
+                                image={withBase("/toolkit/python.webp")}
                             />
                             <TechStackLogo
                                 name="Java"
-                                image="/toolkit/java.png"
+                                image={withBase("/toolkit/java.png")}
                             />
                             <TechStackLogo
                                 name="C"
-                                image="/toolkit/c.png"
+                                image={withBase("/toolkit/c.png")}
                             />
                             <TechStackLogo
                                 name="C++"
-                                image="/toolkit/c++.png"
+                                image={withBase("/toolkit/c++.png")}
                             />
                         </div>
                     </div>
@@ -325,35 +329,35 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="React"
-                                image="/toolkit/react.png"
+                                image={withBase("/toolkit/react.png")}
                             />
                             <TechStackLogo
                                 name="Redux"
-                                image="/toolkit/redux.svg"
+                                image={withBase("/toolkit/redux.svg")}
                             />
                             <TechStackLogo
                                 name="Angular"
-                                image="/toolkit/angular.png"
+                                image={withBase("/toolkit/angular.png")}
                             />
                             <TechStackLogo
                                 name="Bootstrap"
-                                image="/toolkit/bootstrap.png"
+                                image={withBase("/toolkit/bootstrap.png")}
                             />
                             <TechStackLogo
                                 name="Tailwind"
-                                image="/toolkit/tailwind.png"
+                                image={withBase("/toolkit/tailwind.png")}
                             />
                             <TechStackLogo
                                 name="Vite"
-                                image="/toolkit/vite.png"
+                                image={withBase("/toolkit/vite.png")}
                             />
                             <TechStackLogo
                                 name="Webpack"
-                                image="/toolkit/webpack.png"
+                                image={withBase("/toolkit/webpack.png")}
                             />
                             <TechStackLogo
                                 name="Blazor"
-                                image="/toolkit/blazor.png"
+                                image={withBase("/toolkit/blazor.png")}
                             />
                         </div>
                     </div>
@@ -365,35 +369,35 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Node.js"
-                                image="/toolkit/nodejs.webp"
+                                image={withBase("/toolkit/nodejs.webp")}
                             />
                             <TechStackLogo
                                 name="Express.js"
-                                image="/toolkit/expressjs.png"
+                                image={withBase("/toolkit/expressjs.png")}
                             />
                             <TechStackLogo
                                 name="Next.js"
-                                image="/toolkit/nextjs.webp"
+                                image={withBase("/toolkit/nextjs.webp")}
                             />
                             <TechStackLogo
                                 name="Nest.js"
-                                image="/toolkit/nestjs.svg"
+                                image={withBase("/toolkit/nestjs.svg")}
                             />
                             <TechStackLogo
                                 name=".NET"
-                                image="/toolkit/dotnet.png"
+                                image={withBase("/toolkit/dotnet.png")}
                             />
                             <TechStackLogo
                                 name="Flask"
-                                image="/toolkit/flask.jpg"
+                                image={withBase("/toolkit/flask.jpg")}
                             />
                             <TechStackLogo
                                 name="Nginx"
-                                image="/toolkit/nginx.png"
+                                image={withBase("/toolkit/nginx.png")}
                             />
                             <TechStackLogo
                                 name="Apache"
-                                image="/toolkit/apache.jpg"
+                                image={withBase("/toolkit/apache.jpg")}
                             />
                         </div>
                     </div>
@@ -405,15 +409,15 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="React Native"
-                                image="/toolkit/react_native.webp"
+                                image={withBase("/toolkit/react_native.webp")}
                             />
                             <TechStackLogo
                                 name="Expo"
-                                image="/toolkit/expo.png"
+                                image={withBase("/toolkit/expo.png")}
                             />
                             <TechStackLogo
                                 name="Flutter"
-                                image="/toolkit/flutter.png"
+                                image={withBase("/toolkit/flutter.png")}
                             />
                         </div>
                     </div>
@@ -425,27 +429,27 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Microsoft SQL Server"
-                                image="/toolkit/microsoft_sql_server.jpg"
+                                image={withBase("/toolkit/microsoft_sql_server.jpg")}
                             />
                             <TechStackLogo
                                 name="PostgreSQL"
-                                image="/toolkit/postgresql.png"
+                                image={withBase("/toolkit/postgresql.png")}
                             />
                             <TechStackLogo
                                 name="MariaDB"
-                                image="/toolkit/mariadb.png"
+                                image={withBase("/toolkit/mariadb.png")}
                             />
                             <TechStackLogo
                                 name="MongoDB"
-                                image="/toolkit/mongodb.png"
+                                image={withBase("/toolkit/mongodb.png")}
                             />
                             <TechStackLogo
                                 name="Redis"
-                                image="/toolkit/redis.svg"
+                                image={withBase("/toolkit/redis.svg")}
                             />
                             <TechStackLogo
                                 name="Elasticsearch"
-                                image="/toolkit/elasticsearch.svg"
+                                image={withBase("/toolkit/elasticsearch.svg")}
                             />
                         </div>
                     </div>
@@ -457,19 +461,19 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Linux"
-                                image="/toolkit/linux.jpg"
+                                image={withBase("/toolkit/linux.jpg")}
                             />
                             <TechStackLogo
                                 name="Docker"
-                                image="/toolkit/docker.png"
+                                image={withBase("/toolkit/docker.png")}
                             />
                             <TechStackLogo
                                 name="Git"
-                                image="/toolkit/git.png"
+                                image={withBase("/toolkit/git.png")}
                             />
                             <TechStackLogo
                                 name="GitHub"
-                                image="/toolkit/github.webp"
+                                image={withBase("/toolkit/github.webp")}
                             />
                         </div>
                     </div>
@@ -481,39 +485,39 @@ export default function About() {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
                             <TechStackLogo
                                 name="Kali Linux"
-                                image="/toolkit/kali_linux.png"
+                                image={withBase("/toolkit/kali_linux.png")}
                             />
                             <TechStackLogo
                                 name="Metasploit"
-                                image="/toolkit/metasploit.png"
+                                image={withBase("/toolkit/metasploit.png")}
                             />
                             <TechStackLogo
                                 name="Wireshark"
-                                image="/toolkit/wireshark.png"
+                                image={withBase("/toolkit/wireshark.png")}
                             />
                             <TechStackLogo
                                 name="Nmap"
-                                image="/toolkit/nmap.png"
+                                image={withBase("/toolkit/nmap.png")}
                             />
                             <TechStackLogo
                                 name="Burp Suite"
-                                image="/toolkit/burp_suite.jpg"
+                                image={withBase("/toolkit/burp_suite.jpg")}
                             />
                             <TechStackLogo
                                 name="OWASP"
-                                image="/toolkit/owasp.webp"
+                                image={withBase("/toolkit/owasp.webp")}
                             />
                             <TechStackLogo
                                 name="John the Ripper"
-                                image="/toolkit/john_the_ripper.png"
+                                image={withBase("/toolkit/john_the_ripper.png")}
                             />
                             <TechStackLogo
                                 name="Hydra"
-                                image="/toolkit/hydra.svg"
+                                image={withBase("/toolkit/hydra.svg")}
                             />
                             <TechStackLogo
                                 name="SQLmap"
-                                image="/toolkit/sqlmap.png"
+                                image={withBase("/toolkit/sqlmap.png")}
                             />
                         </div>
                     </div>

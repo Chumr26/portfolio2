@@ -11,6 +11,7 @@ import svgPaths from '../../imports/svg-nyhfy7xnj9';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { useRouteScrollMemory } from '../hooks/useRouteScrollMemory';
+import { withBase } from "@/lib/asset";
 
 function SocialButton({
     children,
@@ -230,16 +231,16 @@ function ProjectCard({
                             <button
                                 aria-label="Open image fullscreen"
                                 className="h-full w-full flex items-center justify-center cursor-zoom-in"
-                                onClick={() => setFullscreenImageSrc(imgSrc)}
+                                onClick={() => setFullscreenImageSrc(withBase(imgSrc))}
                                 type="button"
                             >
                                 <img
                                     alt=""
                                     className={imageClassByLayout[layout]}
                                     onLoad={(event) =>
-                                        handleImageLoad(imgSrc, event)
+                                        handleImageLoad(withBase(imgSrc), event)
                                     }
-                                    src={imgSrc}
+                                    src={withBase(imgSrc)}
                                 />
                             </button>
                         </div>

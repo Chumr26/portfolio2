@@ -4,6 +4,7 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { useRouteScrollMemory } from '../hooks/useRouteScrollMemory';
+import { withBase } from '@/lib/asset';
 
 function ArrowIcon() {
     return (
@@ -52,7 +53,7 @@ function CertificateCard({
             {/* Certificate Image */}
             <div className="relative w-full h-[340px] bg-[#0a0a0a] overflow-hidden">
                 <ImageWithFallback
-                    src={image}
+                    src={withBase(image)}
                     alt={`${title} ${t("certificates.altSuffix", { defaultValue: "certificate" })}`}
                     className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
                 />
